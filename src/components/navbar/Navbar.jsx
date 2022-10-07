@@ -161,13 +161,11 @@ function DrawerAppBar(props) {
 					{drawer}
 				</Drawer>
 			</Box>
-			<Box component='main' sx={{ p: 3 }}>
+			<Box component='main' sx={{ p: 3 }} className='welcome__box'>
 				<Toolbar />
-				<Typography className='welcome'>
-					<h2>
-						Welcome. Millions of movies, TV shows and people to discover.
-						Explore now.
-					</h2>
+				<Typography variant='h5' className='welcome'>
+					Welcome. Millions of movies, TV shows and people to discover. Explore
+					now.
 				</Typography>
 			</Box>
 		</Box>

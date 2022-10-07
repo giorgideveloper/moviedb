@@ -27,9 +27,8 @@ const breakPoints = [
 	{ width: 1750, itemsToShow: 5 },
 ];
 
-export default function MultiActionAreaCard({ data }) {
+export default function Trending({ data }) {
 	const img_url = 'https://image.tmdb.org/t/p/w500/';
-
 	return (
 		<Box sx={{ width: '100%' }}>
 			<Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 0 }}>
