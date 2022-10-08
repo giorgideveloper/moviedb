@@ -10,7 +10,7 @@
 .welcome{
   display:flex;
   align-items: center;
-  
+  color: #fff;
   width: 100% !important;
   height:120px;
 }
