@@ -19,9 +19,14 @@ import InputBase from '@mui/material/InputBase';
 import { Container } from '@mui/system';
 import logo from './logo/tmdb.svg';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = [
+	{ id: 1, title: 'Home', page: '/' },
+	{ id: 2, title: 'Movie', page: 'MoviesPage' },
+	{ id: 3, title: 'Serial', page: 'SerialsPage' },
+];
 
 function DrawerAppBar(props) {
 	const { window } = props;
@@ -79,9 +84,9 @@ function DrawerAppBar(props) {
 			<Divider />
 			<List>
 				{navItems.map(item => (
-					<ListItem key={item} disablePadding>
+					<ListItem key={item.id} disablePadding>
 						<ListItemButton sx={{ textAlign: 'center' }}>
-							<ListItemText primary={item} />
+							<ListItemText primary={item.title} />
 						</ListItemButton>
 					</ListItem>
 				))}
@@ -122,8 +127,11 @@ function DrawerAppBar(props) {
 
 						<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 							{navItems.map(item => (
-								<Button key={item} sx={{ color: '#fff' }}>
-									{item}
+								<Button key={item.id} sx={{ color: '#fff' }}>
+									<Link style={{ color: '#fff' }} to={item.page}>
+										{' '}
+										{item.title}
+									</Link>
 								</Button>
 							))}
 						</Box>
