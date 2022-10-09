@@ -16,4 +16,7 @@ export default {
 	getTrending() {
 		return api.get(`/trending/movie/week${api_key}`);
 	},
+	getPopularContent(id) {
+		return api.get(`/movie/${id}${api_key}`);
+	},
 };

@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Carousel from 'react-elastic-carousel';
+import { Link } from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -43,28 +44,30 @@ export default function Trending({ data }) {
 								border: 'none',
 							}}
 						>
-							<Card sx={{ maxWidth: '100%', maxHeight: 'auto' }}>
-								<CardActionArea>
-									<CardMedia
-										component='img'
-										height='300'
-										image={img_url + res.poster_path}
-										alt='green iguana'
-									/>
-									<CardContent style={{ paddingBottom: '2px' }}>
-										<Typography gutterBottom variant='h6' component='div'>
-											{res.title}
-										</Typography>
-										<Typography gutterBottom variant='h7' component='div'>
-											Vote: {res.vote_average}
-										</Typography>
-										<Typography gutterBottom variant='h7' component='div'>
-											Data: {res.release_date}
-										</Typography>
-									</CardContent>
-								</CardActionArea>
-								<CardActions></CardActions>
-							</Card>
+							<Link to={`/movie/${res.id}`}>
+								<Card sx={{ maxWidth: '100%', maxHeight: 'auto' }}>
+									<CardActionArea>
+										<CardMedia
+											component='img'
+											height='300'
+											image={img_url + res.poster_path}
+											alt='green iguana'
+										/>
+										<CardContent style={{ paddingBottom: '2px' }}>
+											<Typography gutterBottom variant='h6' component='div'>
+												{res.title}
+											</Typography>
+											<Typography gutterBottom variant='h7' component='div'>
+												Vote: {res.vote_average}
+											</Typography>
+											<Typography gutterBottom variant='h7' component='div'>
+												Data: {res.release_date}
+											</Typography>
+										</CardContent>
+									</CardActionArea>
+									<CardActions></CardActions>
+								</Card>
+							</Link>
 						</Item>
 					))}
 				</Carousel>
