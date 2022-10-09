@@ -4,17 +4,26 @@ import { useParams } from 'react-router-dom';
 import ApiService from '../service/ApiService';
 
 const SinglePage = () => {
-	let { id } = useParams();
 	const [Content, setContent] = useState([]);
+	const [actors, setActors] = useState([]);
+	let { id } = useParams();
+
 	const getMovie = async () => {
 		await ApiService.getPopularContent(id).then(res => setContent(res.data));
 	};
+	const getActors = async () => {
+		await ApiService.getMovieActors(id).then(res => setActors(res.data.cast));
+	};
+
 	useState(() => {
 		getMovie();
+		getActors();
 	}, [id]);
+
+	console.log(Content);
 	return (
 		<>
-			<MovieContent data={Content} />
+			<MovieContent data={Content} actors={actors} />
 		</>
 	);
 };

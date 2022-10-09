@@ -19,4 +19,7 @@ export default {
 	getPopularContent(id) {
 		return api.get(`/movie/${id}${api_key}`);
 	},
+	getMovieActors(id) {
+		return api.get(`movie/${id}/credits${api_key}`);
+	},
 };

@@ -5,9 +5,8 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
 
-function MovieContent({ data }) {
+function MovieContent({ data, actors }) {
 	const img_url = 'https://image.tmdb.org/t/p/w500/';
-	console.log(data);
 
 	const Item = styled(Paper)(({ theme }) => ({
 		backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -32,7 +31,8 @@ function MovieContent({ data }) {
 						}}
 					>
 						<Grid
-							xs={6}
+							xs={12}
+							md={6}
 							style={{
 								width: '300px',
 								height: '450px',
@@ -46,7 +46,7 @@ function MovieContent({ data }) {
 								/>
 							</Item>
 						</Grid>
-						<Grid xs={6}>
+						<Grid xs={12} md={6}>
 							<Item>
 								<div className='title'>
 									<h2>
@@ -65,6 +65,26 @@ function MovieContent({ data }) {
 								</div>
 							</Item>
 						</Grid>
+					</Grid>
+					<Grid
+						style={{ marginTop: '3em', marginBottom: '5em' }}
+						xs={12}
+						md={6}
+					>
+						<Item>
+							<h2>Actor</h2>
+							{/* {actors.cast.map(act => (
+								<ol key={act.id}>
+									<li>
+										<a href=''>
+											<img src={img_url + act.profile_path} alt='' />
+										</a>
+										<p>{act.name}</p>
+										<p>{act.character}</p>
+									</li>
+								</ol>
+							))} */}
+						</Item>
 					</Grid>
 				</Box>
 			</Container>
