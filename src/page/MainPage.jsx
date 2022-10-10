@@ -19,6 +19,7 @@ function MainPage() {
 		getPopularMovies();
 		getTrendingMovies();
 	}, []);
+
 	return (
 		<>
 			<h2>What's Popular</h2>

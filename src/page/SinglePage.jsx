@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MovieContent from '../components/MovieContent/MovieContent';
 import { useParams } from 'react-router-dom';
 import ApiService from '../service/ApiService';
@@ -15,12 +15,11 @@ const SinglePage = () => {
 		await ApiService.getMovieActors(id).then(res => setActors(res.data.cast));
 	};
 
-	useState(() => {
+	useEffect(() => {
 		getMovie();
 		getActors();
 	}, [id]);
 
-	console.log(Content);
 	return (
 		<>
 			<MovieContent data={Content} actors={actors} />

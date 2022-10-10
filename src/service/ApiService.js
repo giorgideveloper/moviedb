@@ -8,7 +8,9 @@ const api = axios.create({
 		'Content-Type': 'application/json',
 	},
 });
+
 const api_key = '?api_key=5542c44cdf4bd84873c85d8e27e915d5';
+
 export default {
 	getPopular() {
 		return api.get(`/movie/popular${api_key}`);
@@ -21,5 +23,8 @@ export default {
 	},
 	getMovieActors(id) {
 		return api.get(`movie/${id}/credits${api_key}`);
+	},
+	getSearch(name) {
+		return api.get(`search/movie${api_key}&query=${name}`);
 	},
 };

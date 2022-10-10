@@ -15,6 +15,7 @@ function MovieContent({ data, actors }) {
 		color: theme.palette.text.secondary,
 	}));
 
+	console.log(actors);
 	return (
 		<>
 			<Container>
@@ -73,7 +74,7 @@ function MovieContent({ data, actors }) {
 					>
 						<Item>
 							<h2>Actor</h2>
-							{/* {actors.cast.map(act => (
+							{actors.map(act => (
 								<ol key={act.id}>
 									<li>
 										<a href=''>
@@ -83,7 +84,7 @@ function MovieContent({ data, actors }) {
 										<p>{act.character}</p>
 									</li>
 								</ol>
-							))} */}
+							))}
 						</Item>
 					</Grid>
 				</Box>
