@@ -4,6 +4,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
+import Carousel from 'react-elastic-carousel';
 
 function MovieContent({ data, actors }) {
 	const img_url = 'https://image.tmdb.org/t/p/w500/';
@@ -15,7 +16,14 @@ function MovieContent({ data, actors }) {
 		color: theme.palette.text.secondary,
 	}));
 
-	console.log(actors);
+	const breakPoints = [
+		{ width: 1, itemsToShow: 2 },
+		{ width: 550, itemsToShow: 3, itemsToScroll: 2, pagination: false },
+		{ width: 850, itemsToShow: 5 },
+		{ width: 1150, itemsToShow: 5, itemsToScroll: 2 },
+		{ width: 1450, itemsToShow: 5 },
+		{ width: 1750, itemsToShow: 5 },
+	];
 	return (
 		<>
 			<Container>
@@ -74,17 +82,34 @@ function MovieContent({ data, actors }) {
 					>
 						<Item>
 							<h2>Actor</h2>
-							{actors.map(act => (
-								<ol key={act.id}>
-									<li>
-										<a href=''>
-											<img src={img_url + act.profile_path} alt='' />
-										</a>
-										<p>{act.name}</p>
-										<p>{act.character}</p>
-									</li>
-								</ol>
-							))}
+							<Carousel itemsToShow={5} breakPoints={breakPoints}>
+								{actors.map(act => (
+									<ol
+										key={act.id}
+										style={{
+											listStyle: 'none',
+											width: '150px',
+											height: '300px',
+										}}
+									>
+										<Item>
+											<li style={{ width: '100%', height: '200px' }}>
+												<a href=''>
+													<img
+														src={img_url + act.profile_path}
+														alt=''
+														style={{ width: '100%', height: '100%' }}
+													/>
+												</a>
+												<div>
+													<p>{act.name}</p>
+													<p>{act.character}</p>
+												</div>
+											</li>
+										</Item>
+									</ol>
+								))}
+							</Carousel>
 						</Item>
 					</Grid>
 				</Box>

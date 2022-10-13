@@ -34,7 +34,7 @@ export default function MultiActionAreaCard({ data }) {
 	return (
 		<Box sx={{ width: '100%' }}>
 			<Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 0 }}>
-				<Carousel itemsToShow={5} breakPoints={breakPoints}>
+				<Carousel itemsToScroll={5} itemsToShow={5} breakPoints={breakPoints}>
 					{data.map(res => (
 						<Item
 							key={res.id}
