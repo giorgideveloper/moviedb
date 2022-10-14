@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import ApiService from '../../service/ApiService';
 
 function TheSearch() {
-	let searchInput = useRef(null);
+	const [searchContent, setSearchContent] = useState('');
+
 	const Search = styled('div')(({ theme }) => ({
 		position: 'relative',
 		borderRadius: theme.shape.borderRadius,
@@ -46,23 +47,24 @@ function TheSearch() {
 		},
 	}));
 
-	const SearchMovie = () => {
-		if (searchInput.current.value.length === 3) {
-			ApiService.getSearch(searchInput.current.value).then(search => {
-				console.log(search.data.results);
-			});
-		}
-	};
+	// const SearchMovie = e => {
+	// 	if (e.target.value.length >= 3) {
+	// 		ApiService.getSearch(e.target.value).then(search => {
+	// 			setSearchContent(search.data.results);
+	// 		});
+	// 	}
+	// };
 
+	console.log(searchContent);
 	return (
 		<Search>
 			<SearchIconWrapper>
 				<SearchIcon />
 			</SearchIconWrapper>
 			<StyledInputBase
-				onChange={() => SearchMovie()}
+				onChange={e => setSearchContent(e.target.value)}
 				placeholder='Search…'
-				inputProps={{ 'aria-label': 'search', ref: searchInput }}
+				inputProps={{ 'aria-label': 'search' }}
 			/>
 		</Search>
 	);
