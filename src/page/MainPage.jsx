@@ -1,3 +1,4 @@
+import { Box, Container, Toolbar, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/footer/Footer';
 import MultiActionAreaCard from '../components/popular/Popular';
@@ -22,11 +23,20 @@ function MainPage() {
 
 	return (
 		<>
-			<h2>What's Popular</h2>
-			<MultiActionAreaCard data={popularMovie} />
-			<h2>Trending</h2>
-			<Trending data={trendingMovie} />
-			<Footer />
+			<Container>
+				<Box component='main' sx={{ p: 1 }} className='welcome__box'>
+					<Toolbar />
+					<Typography variant='h5' className='welcome'>
+						Welcome. Millions of movies, TV shows and people to discover.
+						Explore now.
+					</Typography>
+				</Box>
+				<h2>What's Popular</h2>
+				<MultiActionAreaCard data={popularMovie} />
+				<h2>Trending</h2>
+				<Trending data={trendingMovie} />
+				<Footer />
+			</Container>
 		</>
 	);
 }

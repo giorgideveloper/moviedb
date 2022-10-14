@@ -27,7 +27,7 @@ function MovieContent({ data, actors }) {
 	return (
 		<>
 			<Container>
-				<Box sx={{ width: '100%' }}>
+				<Box sx={{ width: '100%' }} style={{ marginTop: '5em' }}>
 					<Grid
 						container
 						rowSpacing={1}

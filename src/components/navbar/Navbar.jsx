@@ -74,13 +74,15 @@ function DrawerAppBar(props) {
 							component='div'
 							sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
 						>
-							<img
-								className='logo'
-								src={logo}
-								width='100'
-								height='100'
-								alt=''
-							/>
+							<Link to={'/'}>
+								<img
+									className='logo'
+									src={logo}
+									width='100'
+									height='100'
+									alt=''
+								/>
+							</Link>
 						</Typography>
 
 						<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -119,13 +121,6 @@ function DrawerAppBar(props) {
 				>
 					{drawer}
 				</Drawer>
-			</Box>
-			<Box component='main' sx={{ p: 3 }} className='welcome__box'>
-				<Toolbar />
-				<Typography variant='h5' className='welcome'>
-					Welcome. Millions of movies, TV shows and people to discover. Explore
-					now.
-				</Typography>
 			</Box>
 		</Box>
 	);
