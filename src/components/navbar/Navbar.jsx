@@ -17,7 +17,7 @@ import { Container } from '@mui/system';
 import logo from './logo/tmdb.svg';
 import './style.css';
 import { Link } from 'react-router-dom';
-import TheSearch from './TheSearch';
+import ApiService from '../../service/ApiService';
 
 const drawerWidth = 240;
 const navItems = [
@@ -32,6 +32,16 @@ function DrawerAppBar(props) {
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
+	};
+	const SearchMovie = e => {
+		if (e.target.value.length >= 3) {
+			ApiService.getSearch(e.target.value).then(search => {
+				props.setSearchContent(search.data.results);
+			});
+		}
+		if (e.target.value.length <= 2) {
+			props.setSearchContent('');
+		}
 	};
 
 	const drawer = (
@@ -97,7 +107,7 @@ function DrawerAppBar(props) {
 						</Box>
 
 						{/* search */}
-						<TheSearch />
+						<input onChange={SearchMovie} />
 					</Toolbar>
 				</Container>
 			</AppBar>

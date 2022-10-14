@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -33,7 +33,7 @@ export default function Trending({ data }) {
 	return (
 		<Box sx={{ width: '100%' }}>
 			<Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 0 }}>
-				<Carousel itemsToShow={5} breakPoints={breakPoints}>
+				<Carousel itemsToScroll={5} itemsToShow={5} breakPoints={breakPoints}>
 					{data.map(res => (
 						<Item
 							key={res.id}

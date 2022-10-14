@@ -82,7 +82,11 @@ function MovieContent({ data, actors }) {
 					>
 						<Item>
 							<h2>Actor</h2>
-							<Carousel itemsToShow={5} breakPoints={breakPoints}>
+							<Carousel
+								itemsToShow={5}
+								itemsToScroll={5}
+								breakPoints={breakPoints}
+							>
 								{actors.map(act => (
 									<ol
 										key={act.id}
