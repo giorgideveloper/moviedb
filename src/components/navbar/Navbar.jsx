@@ -122,6 +122,7 @@ function DrawerAppBar(props) {
 					{drawer}
 				</Drawer>
 			</Box>
+			<Box>search</Box>
 		</Box>
 	);
 }

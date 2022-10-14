@@ -7,7 +7,7 @@ import ApiService from '../../service/ApiService';
 function TheSearch() {
 	const [searchContent, setSearchContent] = useState('');
 
-	const Search = styled('div')(({ theme }) => ({
+	/* 	const Search = styled('div')(({ theme }) => ({
 		position: 'relative',
 		borderRadius: theme.shape.borderRadius,
 		backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -46,27 +46,31 @@ function TheSearch() {
 			},
 		},
 	}));
+ */
+	const SearchMovie = e => {
+		if (e.target.value.length >= 3) {
+			ApiService.getSearch(e.target.value).then(search => {
+				setSearchContent(search.data.results);
+			});
+		}
+		if (e.target.value.length <= 2) {
+			setSearchContent('');
+		}
+	};
 
-	// const SearchMovie = e => {
-	// 	if (e.target.value.length >= 3) {
-	// 		ApiService.getSearch(e.target.value).then(search => {
-	// 			setSearchContent(search.data.results);
-	// 		});
-	// 	}
-	// };
-
-	console.log(searchContent);
 	return (
-		<Search>
-			<SearchIconWrapper>
-				<SearchIcon />
-			</SearchIconWrapper>
-			<StyledInputBase
-				onChange={e => setSearchContent(e.target.value)}
-				placeholder='Search…'
-				inputProps={{ 'aria-label': 'search' }}
-			/>
-		</Search>
+		<>
+			<input onChange={SearchMovie} />
+			{searchContent.length >= 3 ? (
+				<ul>
+					{searchContent.map(item => (
+						<li key={item.id}>{item.title}</li>
+					))}
+				</ul>
+			) : (
+				searchContent
+			)}
+		</>
 	);
 }
 
