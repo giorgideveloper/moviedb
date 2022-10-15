@@ -80,7 +80,7 @@ function MovieContent({ data, actors }) {
 						xs={12}
 						md={6}
 					>
-						<Item>
+						<div>
 							<h2>Actor</h2>
 							<Carousel itemsToShow={5} breakPoints={breakPoints}>
 								{actors.map(act => (
@@ -110,7 +110,7 @@ function MovieContent({ data, actors }) {
 									</ol>
 								))}
 							</Carousel>
-						</Item>
+						</div>
 					</Grid>
 				</Box>
 			</Container>

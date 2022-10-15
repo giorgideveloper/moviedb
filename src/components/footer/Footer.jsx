@@ -1,17 +1,45 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-
-const Item = styled(Paper)(({ theme }) => ({
-	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-	...theme.typography.body2,
-	padding: theme.spacing(1),
-	textAlign: 'center',
-	color: theme.palette.text.secondary,
-}));
 
 export default function Footer() {
+	const footerItems = [
+		{
+			id: 1,
+			title: 'THE BASICS',
+			about: 'bout TMDB',
+			contact: 'Contact Us',
+			support: 'upport Forums',
+			api: 'API',
+			status: 'System Status',
+		},
+		{
+			id: 2,
+			title: 'THE BASICS',
+			about: 'bout TMDB',
+			contact: 'Contact Us',
+			support: 'upport Forums',
+			api: 'API',
+			status: 'System Status',
+		},
+		{
+			id: 3,
+			title: 'THE BASICS',
+			about: 'bout TMDB',
+			contact: 'Contact Us',
+			support: 'upport Forums',
+			api: 'API',
+			status: 'System Status',
+		},
+		{
+			id: 4,
+			title: 'THE BASICS',
+			about: 'bout TMDB',
+			contact: 'Contact Us',
+			support: 'upport Forums',
+			api: 'API',
+			status: 'System Status',
+		},
+	];
 	return (
 		<div
 			style={{
@@ -25,86 +53,21 @@ export default function Footer() {
 				spacing={{ xs: 1, sm: 2, md: 4 }}
 				className='footer_text'
 			>
-				<Item style={{ display: 'block', textAlign: 'left', width: '100%' }}>
-					<ul>
-						<h3>THE BASICS</h3>
-						<li>
-							<a href=''>About TMDB</a>
-						</li>
-					</ul>
-					<ul>
-						<a href=''>Contact Us</a>
-					</ul>
-					<ul>
-						<a href=''>Support Forums</a>
-					</ul>
-					<ul>
-						<a href=''>API</a>
-					</ul>
-					<ul>
-						<a href=''>System Status</a>
-					</ul>
-				</Item>
-				<Item style={{ display: 'block', textAlign: 'left', width: '100%' }}>
-					<ul>
-						<h3>THE BASICS</h3>
-						<li>
-							<a href=''>About TMDB</a>
-						</li>
-					</ul>
-					<ul>
-						<a href=''>Contact Us</a>
-					</ul>
-					<ul>
-						<a href=''>Support Forums</a>
-					</ul>
-					<ul>
-						<a href=''>API</a>
-					</ul>
-					<ul>
-						<a href=''>System Status</a>
-					</ul>
-				</Item>
-				<Item style={{ display: 'block', textAlign: 'left', width: '100%' }}>
-					<ul>
-						<h3>THE BASICS</h3>
-						<li>
-							<a href=''>About TMDB</a>
-						</li>
-					</ul>
-					<ul>
-						<a href=''>Contact Us</a>
-					</ul>
-					<ul>
-						<a href=''>Support Forums</a>
-					</ul>
-					<ul>
-						<a href=''>API</a>
-					</ul>
-					<ul>
-						<a href=''>System Status</a>
-					</ul>
-				</Item>
-				<Item style={{ display: 'block', textAlign: 'left', width: '100%' }}>
-					<ul>
-						<h3>THE BASICS</h3>
-						<li>
-							<a href=''>About TMDB</a>
-						</li>
-					</ul>
-					<ul>
-						<a href=''>Contact Us</a>
-					</ul>
-					<ul>
-						<a href=''>Support Forums</a>
-					</ul>
-					<ul>
-						<a href=''>API</a>
-					</ul>
-					<ul>
-						<a href=''>System Status</a>
-					</ul>
-				</Item>
+				{footerItems.map(item => (
+					<div
+						key={item.id}
+						style={{ display: 'block', textAlign: 'left', width: '100%' }}
+					>
+						<ul>
+							<h3 style={{ textAlign: 'center' }}>{item.title}</h3>
+							<li>{item.about}</li>
+							<li>{item.support}</li>
+							<li>{item.contact}</li>
+							<li>{item.api}</li>
+							<li>{item.status}</li>
+						</ul>
+					</div>
+				))}
 			</Stack>
 		</div>
 	);

@@ -27,20 +27,20 @@ function MainPage() {
 
 	return (
 		<>
+			<Typography variant='h4' className='welcome'>
+				<p>
+					Welcome. Millions of movies, TV shows and people to discover. Explore
+					now.
+				</p>
+			</Typography>
 			<Container>
 				<Box component='main' sx={{ p: 1 }} className='welcome__box'>
 					<Toolbar />
-
-					<Typography variant='h5' className='welcome'>
-						Welcome. Millions of movies, TV shows and people to discover.
-						Explore now.
-					</Typography>
 				</Box>
-				<h2>What's Popular</h2>
+				<h2 style={{ textAlign: 'center', fontSize: '2em' }}>What's Popular</h2>
 				<MultiActionAreaCard data={popularMovie} />
-				<h2>Trending</h2>
+				<h2 style={{ textAlign: 'center', fontSize: '2em' }}>Trending</h2>
 				<Trending data={trendingMovie} />
-				<Footer />
 			</Container>
 		</>
 	);

@@ -54,13 +54,23 @@ export default function Trending({ data }) {
 											alt='green iguana'
 										/>
 										<CardContent style={{ paddingBottom: '2px' }}>
-											<Typography gutterBottom variant='h6' component='div'>
+											<Typography
+												gutterBottom
+												variant='h6'
+												style={{ fontSize: '17px' }}
+												component='div'
+											>
 												{res.title}
 											</Typography>
 											<Typography gutterBottom variant='h7' component='div'>
 												Vote: {res.vote_average}
 											</Typography>
-											<Typography gutterBottom variant='h7' component='div'>
+											<Typography
+												gutterBottom
+												variant='h7'
+												style={{ fontSize: '12px' }}
+												component='div'
+											>
 												Data: {res.release_date}
 											</Typography>
 										</CardContent>
