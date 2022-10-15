@@ -10,18 +10,27 @@ import { useState } from 'react';
 
 function App() {
 	const [searchContent, setSearchContent] = useState('');
+	const [block, setBlock] = useState('');
+
 	return (
 		<div className='App'>
 			<Container>
 				<DrawerAppBar
 					setSearchContent={setSearchContent}
+					setBlock={setBlock}
 					style={{ marginTop: '2em' }}
 				/>
 
 				{searchContent.length >= 3 ? (
-					<ul className='dropdown'>
+					<ul className='dropdown' style={{ display: block }}>
 						{searchContent.map(item => (
-							<Link key={item.id} to={`/movie/${item.id}`}>
+							<Link
+								onClick={() => {
+									setBlock('none');
+								}}
+								key={item.id}
+								to={`/movie/${item.id}`}
+							>
 								<li>{item.title}</li>
 							</Link>
 						))}

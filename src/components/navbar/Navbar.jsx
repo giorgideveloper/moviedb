@@ -38,6 +38,7 @@ function DrawerAppBar(props) {
 			ApiService.getSearch(e.target.value).then(search => {
 				props.setSearchContent(search.data.results);
 			});
+			props.setBlock('block');
 		}
 		if (e.target.value.length <= 2) {
 			props.setSearchContent('');
