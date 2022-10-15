@@ -22,7 +22,7 @@ function App() {
 				/>
 
 				{searchContent.length >= 3 ? (
-					<ul className='dropdown' style={{ display: block }}>
+					<ul className='dropdown' style={{ display: block, marginTop: '3em' }}>
 						{searchContent.map(item => (
 							<Link
 								onClick={() => {
