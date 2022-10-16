@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -71,7 +72,8 @@ export default function Trending({ data }) {
 												style={{ fontSize: '12px' }}
 												component='div'
 											>
-												Data: {res.release_date}
+												<CalendarMonthIcon style={{ fontSize: '16px' }} />{' '}
+												{res.release_date}
 											</Typography>
 										</CardContent>
 									</CardActionArea>

@@ -61,7 +61,7 @@ function MovieContent({ data, actors }) {
 									<h2>
 										Name: {data.original_title}
 										<span style={{ marginLeft: '10px', fontSize: '16px' }}>
-											{data.release_date}
+											({data.release_date})
 										</span>
 									</h2>
 									<div className='character'>
