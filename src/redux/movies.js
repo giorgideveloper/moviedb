@@ -11,6 +11,7 @@ export const moviesSlice = createSlice({
 	},
 
 	extraReducers(builder) {
+		// trending movies
 		builder
 			.addCase(trendingMovies.pending, (state, action) => {
 				state.status = 'pending';
@@ -23,6 +24,7 @@ export const moviesSlice = createSlice({
 				state.status = 'rejected';
 				state.error = action.error.message;
 			});
+		// popular movies
 		builder
 			.addCase(popularMovies.pending, (state, action) => {
 				state.status = 'pending';

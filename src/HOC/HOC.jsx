@@ -5,6 +5,7 @@ import { popularMovies } from '../redux/movies';
 
 function UpdateComponent(OriginalComponent) {
 	function NewComponent() {
+		//get redux movies
 		const trending = useSelector(state => state.trending.trending);
 		const popular = useSelector(state => state.popular.popular);
 		const dispatch = useDispatch();
