@@ -29,7 +29,7 @@ const breakPoints = [
 	{ width: 1750, itemsToShow: 5 },
 ];
 
-export default function Trending({ data }) {
+function Trending({ data }) {
 	const img_url = 'https://image.tmdb.org/t/p/w500/';
 	return (
 		<Box sx={{ width: '100%' }}>
@@ -87,3 +87,4 @@ export default function Trending({ data }) {
 		</Box>
 	);
 }
+export default Trending;
