@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import ApiService from '../service/ApiService';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { trendingMovies } from '../redux/movies';
+import { popularMovies } from '../redux/movies';
 
 function UpdateComponent(OriginalComponent) {
 	function NewComponent() {
-		const [trendingMovie, setTrendingMovie] = useState([]);
-		const [popularMovie, setPopularMovie] = useState([]);
+		const trending = useSelector(state => state.trending.trending);
+		const popular = useSelector(state => state.popular.popular);
+		const dispatch = useDispatch();
 
 		useEffect(() => {
-			ApiService.getTrending().then(res => setTrendingMovie(res.data.results));
-		}, []);
-
-		useEffect(() => {
-			ApiService.getPopular().then(res => setPopularMovie(res.data.results));
-		}, []);
+			dispatch(popularMovies());
+			dispatch(trendingMovies());
+		}, [dispatch]);
 
 		return (
-			<OriginalComponent
-				trendingMovie={trendingMovie}
-				popularMovie={popularMovie}
-			/>
+			<OriginalComponent trendingMovie={trending} popularMovie={popular} />
 		);
 	}
 
