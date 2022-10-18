@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
@@ -6,10 +6,12 @@ import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
 import Carousel from 'react-elastic-carousel';
 import Modal from '../portals/Modal';
+import ApiService from '../../service/ApiService';
 
 function MovieContent({ data, actors }) {
 	const img_url = 'https://image.tmdb.org/t/p/w500/';
 	const [isOpen, setIsOpen] = useState(false);
+	const [trailer, setTrailer] = useState({});
 
 	const handleClose = () => {
 		setIsOpen(false);
@@ -29,6 +31,14 @@ function MovieContent({ data, actors }) {
 		{ width: 1450, itemsToShow: 5, itemsToScroll: 5 },
 		{ width: 1750, itemsToShow: 5, itemsToScroll: 2 },
 	];
+	useEffect(() => {
+		if (isOpen) {
+			ApiService.getVideos(data.id).then(res =>
+				setTrailer(res.data.results[0])
+			);
+		}
+		return () => setTrailer({});
+	}, [isOpen]);
 	return (
 		<>
 			<Container>
@@ -121,10 +131,13 @@ function MovieContent({ data, actors }) {
 				</Box>
 			</Container>
 			<Modal isOpen={isOpen} handleClose={handleClose}>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nobis
-				adipisci, ullam in fugiat perspiciatis qui, a consequuntur voluptatem
-				voluptatibus nostrum eos ducimus non tempore. Excepturi neque nam ullam
-				incidunt.
+				<iframe
+					width='100%'
+					height='300px'
+					src={`https://www.youtube.com/embed/${trailer.key}`}
+					title='AVENGERS 3: Infinity War All Bonus Features & Bloopers (2018)'
+					allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+				></iframe>
 			</Modal>
 		</>
 	);

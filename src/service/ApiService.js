@@ -27,4 +27,7 @@ export default {
 	getSearch(name) {
 		return api.get(`search/movie${api_key}&query=${name}`);
 	},
+	getVideos(id) {
+		return api.get(`movie/${id}/videos${api_key}`);
+	},
 };
