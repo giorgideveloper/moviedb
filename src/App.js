@@ -8,14 +8,11 @@ import SerialsPage from './page/SerialsPage';
 import SinglePage from './page/SinglePage';
 import { useState } from 'react';
 import Footer from './components/footer/Footer';
-import useGetPopularMovies from './hooks/useGetPopularMovies';
 
 function App() {
 	const [searchContent, setSearchContent] = useState('');
 	const [block, setBlock] = useState('');
-	const data = useGetPopularMovies();
 
-	console.log(data);
 	return (
 		<div className='App'>
 			<DrawerAppBar

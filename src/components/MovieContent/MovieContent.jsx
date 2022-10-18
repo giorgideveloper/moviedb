@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
 import Carousel from 'react-elastic-carousel';
+import Modal from '../portals/Modal';
 
 function MovieContent({ data, actors }) {
 	const img_url = 'https://image.tmdb.org/t/p/w500/';
+	const [isOpen, setIsOpen] = useState(false);
 
+	const handleClose = () => {
+		setIsOpen(false);
+	};
 	const Item = styled(Paper)(({ theme }) => ({
 		backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
 		...theme.typography.body2,
@@ -73,6 +78,7 @@ function MovieContent({ data, actors }) {
 									<span>{data.overview}</span>
 								</div>
 							</Item>
+							<button onClick={() => setIsOpen(true)}>Watch trailer</button>
 						</Grid>
 					</Grid>
 					<Grid
@@ -114,6 +120,12 @@ function MovieContent({ data, actors }) {
 					</Grid>
 				</Box>
 			</Container>
+			<Modal isOpen={isOpen} handleClose={handleClose}>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nobis
+				adipisci, ullam in fugiat perspiciatis qui, a consequuntur voluptatem
+				voluptatibus nostrum eos ducimus non tempore. Excepturi neque nam ullam
+				incidunt.
+			</Modal>
 		</>
 	);
 }
