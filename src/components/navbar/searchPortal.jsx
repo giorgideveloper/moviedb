@@ -1,29 +1,32 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Portal from '@mui/material/Portal';
 
-export default function SimplePortal() {
-	const [show, setShow] = React.useState(false);
-	const container = React.useRef(null);
-
-	const handleClick = () => {
-		setShow(!show);
-	};
-
+export default function SearchPortal({ SearchMovie }) {
 	return (
-		<div>
-			<button type='button' onClick={handleClick}>
-				{show ? 'Unmount children' : 'Mount children'}
-			</button>
-			<Box sx={{ p: 1, my: 1, border: '1px solid' }}>
-				It looks like I will render here.
-				{show ? (
-					<Portal container={container.current}>
-						<span>But I actually render here!</span>
-					</Portal>
-				) : null}
-			</Box>
-			<Box sx={{ p: 1, my: 1, border: '1px solid' }} ref={container} />
-		</div>
+		<>
+			<div className='search_bar'>
+				<section className='search show_search_false'>
+					<div className='sub_media'>
+						<form id='search_form' action='/search'>
+							<label>
+								<span
+									tabIndex='1'
+									role='presentation'
+									className='k-widget k-autocomplete k-autocomplete-clearable k-state-default'
+								></span>
+								<input
+									type='text'
+									name='query'
+									tabIndex='1'
+									autoCorrect='off'
+									autofill='off'
+									placeholder='Search for a movie, tv show, person...'
+									onChange={SearchMovie}
+								/>
+							</label>
+						</form>
+					</div>
+				</section>
+			</div>
+		</>
 	);
 }

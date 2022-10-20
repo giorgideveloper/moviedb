@@ -2,73 +2,32 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 
 export default function Footer() {
-	const footerItems = [
-		{
-			id: 1,
-			title: 'THE BASICS',
-			about: 'bout TMDB',
-			contact: 'Contact Us',
-			support: 'upport Forums',
-			api: 'API',
-			status: 'System Status',
-		},
-		{
-			id: 2,
-			title: 'THE BASICS',
-			about: 'bout TMDB',
-			contact: 'Contact Us',
-			support: 'upport Forums',
-			api: 'API',
-			status: 'System Status',
-		},
-		{
-			id: 3,
-			title: 'THE BASICS',
-			about: 'bout TMDB',
-			contact: 'Contact Us',
-			support: 'upport Forums',
-			api: 'API',
-			status: 'System Status',
-		},
-		{
-			id: 4,
-			title: 'THE BASICS',
-			about: 'bout TMDB',
-			contact: 'Contact Us',
-			support: 'upport Forums',
-			api: 'API',
-			status: 'System Status',
-		},
-	];
 	return (
-		<div
-			style={{
-				justifyContent: 'center',
-				display: 'flex',
-				paddingTop: '5em',
-			}}
-		>
-			<Stack
-				direction={{ xs: 'column', sm: 'row' }}
-				spacing={{ xs: 1, sm: 2, md: 4 }}
-				className='footer_text'
+		<div style={{ marginTop: '5em' }}>
+			<div
+				style={{
+					justifyContent: 'center',
+					height: '100%',
+					display: 'flex',
+					paddingTop: '1.6em',
+					paddingBottom: '1em',
+					borderTop: '1px solid rgb(71, 71, 71)',
+				}}
 			>
-				{footerItems.map(item => (
+				<Stack
+					direction={{ xs: 'column', sm: 'row' }}
+					spacing={{ xs: 1, sm: 2, md: 4 }}
+				>
 					<div
-						key={item.id}
-						style={{ display: 'block', textAlign: 'left', width: '100%' }}
+						style={{
+							display: 'flex',
+							width: '100%',
+						}}
 					>
-						<ul>
-							<h3 style={{ textAlign: 'center' }}>{item.title}</h3>
-							<li>{item.about}</li>
-							<li>{item.support}</li>
-							<li>{item.contact}</li>
-							<li>{item.api}</li>
-							<li>{item.status}</li>
-						</ul>
+						© All rights reserved.
 					</div>
-				))}
-			</Stack>
+				</Stack>
+			</div>
 		</div>
 	);
 }

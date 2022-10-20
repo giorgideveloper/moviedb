@@ -49,3 +49,16 @@
   color: #fff !important;
   background-color:#1A2027 !important;
 }
+.css-waq1ca{
+  display: flex;
+  justify-content:center;
+  width: 100% !important;
+  margin-top: -2.0em;
+  padding:1px !important;
+  border:none !important
+}
+.css-waq1ca input{
+  height: 20px;
+  width: 50% !important;
+
+}

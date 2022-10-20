@@ -16,6 +16,7 @@ function MainPage({ trendingMovie, popularMovie }) {
 				<Box component='main' sx={{ p: 1 }} className='welcome__box'>
 					<Toolbar />
 				</Box>
+
 				<h2 style={{ textAlign: 'center', fontSize: '2em' }}>What's Popular</h2>
 				<Trending data={popularMovie} />
 

@@ -17,8 +17,10 @@ import { Container } from '@mui/system';
 import logo from './logo/tmdb.svg';
 import './style.css';
 import { Link } from 'react-router-dom';
-import ApiService from '../../service/ApiService';
 import SearchIcon from '@mui/icons-material/Search';
+import ApiService from '../../service/ApiService';
+import SearchPortal from './searchPortal';
+import { Portal } from '@mui/material';
 
 const drawerWidth = 240;
 const navItems = [
@@ -30,20 +32,28 @@ const navItems = [
 function DrawerAppBar(props) {
 	const { window } = props;
 	const [mobileOpen, setMobileOpen] = React.useState(false);
+	const [show, setShow] = React.useState(false);
+	const [searchContent, setSearchContent] = React.useState('');
+	const [block, setBlock] = React.useState('');
+
+	const SearchMovie = e => {
+		if (e.target.value.length >= 3) {
+			ApiService.getSearch(e.target.value).then(search => {
+				setSearchContent(search.data.results);
+			});
+			setBlock('block');
+		}
+		if (e.target.value.length <= 2) {
+			setSearchContent('');
+		}
+	};
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
-	const SearchMovie = e => {
-		if (e.target.value.length >= 3) {
-			ApiService.getSearch(e.target.value).then(search => {
-				props.setSearchContent(search.data.results);
-			});
-			props.setBlock('block');
-		}
-		if (e.target.value.length <= 2) {
-			props.setSearchContent('');
-		}
+
+	const handleClick = () => {
+		setShow(!show);
 	};
 
 	const drawer = (
@@ -106,10 +116,46 @@ function DrawerAppBar(props) {
 								</Button>
 							))}
 						</Box>
-						{/* search */} <SearchIcon style={{ fontSize: '1.9em' }} />
+						{/* search icon */}{' '}
+						<SearchIcon
+							onClick={handleClick}
+							style={{ fontSize: '1.9em', cursor: 'pointer' }}
+						/>
 						{/* <input onChange={SearchMovie} /> */}
 					</Toolbar>
 				</Container>
+				{show ? <SearchPortal SearchMovie={SearchMovie} /> : null}
+				<div>
+					{searchContent.length >= 3 ? (
+						<ul
+							className='dropdown'
+							style={{
+								display: block,
+								marginTop: '2em',
+							}}
+						>
+							{searchContent.map(item => (
+								<Link
+									onClick={() => {
+										setBlock('none');
+									}}
+									key={item.id}
+									to={`/movie/${item.id}`}
+								>
+									<li
+										style={{
+											color: '#fff !important',
+										}}
+									>
+										{item.title}
+									</li>
+								</Link>
+							))}
+						</ul>
+					) : (
+						searchContent
+					)}
+				</div>
 			</AppBar>
 
 			<Box component='nav'>

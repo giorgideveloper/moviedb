@@ -42,7 +42,14 @@ function MovieContent({ data, actors, loading }) {
 	return (
 		<>
 			{loading ? (
-				<Box sx={{ display: 'flex' }}>
+				<Box
+					sx={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						height: '100%',
+					}}
+				>
 					<CircularProgress color='success' />
 				</Box>
 			) : (
@@ -57,7 +64,6 @@ function MovieContent({ data, actors, loading }) {
 								backgroundPosition: 'top center',
 								backgroundRepeat: 'no-repeat',
 								backgroundSize: 'cover',
-								bacgroundOpacity: 0.5,
 							}}
 						>
 							<Grid
@@ -77,7 +83,7 @@ function MovieContent({ data, actors, loading }) {
 								</Item>
 							</Grid>
 							<Grid xs={12} md={6}>
-								<Item className='cardItem'>
+								<Item className='cardItem' style={{ opacity: '0.9' }}>
 									<div className='title'>
 										<h2>
 											Name: {data.original_title}
@@ -94,6 +100,7 @@ function MovieContent({ data, actors, loading }) {
 										<span>{data.overview}</span>
 									</div>
 								</Item>
+
 								<Button variant='contained' onClick={() => setIsOpen(true)}>
 									<PlayCircleFilledIcon />
 									{'  '} Watch trailer
@@ -106,6 +113,7 @@ function MovieContent({ data, actors, loading }) {
 							md={6}
 						>
 							<div>
+								{/* show actors */}
 								<h2>Actor</h2>
 								<Carousel itemsToShow={5} breakPoints={breakPoints}>
 									{actors.map(act => (

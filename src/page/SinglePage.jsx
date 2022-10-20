@@ -41,7 +41,9 @@ const SinglePage = () => {
 
 	return (
 		<>
-			<MovieContent data={Content} actors={actors} loading={loading} />
+			<div style={{ display: 'flex', justifyContent: 'center' }}>
+				<MovieContent data={Content} actors={actors} loading={loading} />
+			</div>
 		</>
 	);
 };
