@@ -8,6 +8,7 @@ import SerialsPage from './page/SerialsPage';
 import SinglePage from './page/SinglePage';
 import { useState } from 'react';
 import Footer from './components/footer/Footer';
+import NothingPage from './page/NothingPage';
 
 function App() {
 	const [searchContent, setSearchContent] = useState('');
@@ -43,6 +44,7 @@ function App() {
 				<Route path='/MoviesPage' element={<MoviesPage />} />
 				<Route path='/SerialsPage' element={<SerialsPage />} />
 				<Route path='/movie/:id' element={<SinglePage />} />
+				<Route path='*' element={<NothingPage />} />
 			</Routes>
 			<Footer />
 		</div>

@@ -1,5 +1,7 @@
 .logo{
   height: 30px !important;
+  width:20% !important;
+  
 }
 .welcome{
   background: url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/uozb2VeD87YmhoUP1RrGWfzuCrr.jpg");
@@ -18,4 +20,7 @@ padding-left: 1em !important;
 }
 a{
   text-decoration: none;
+}
+.css-11b3ww9-MuiPaper-root-MuiAppBar-root{
+  background-color: #032541 !important;
 }

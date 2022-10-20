@@ -18,12 +18,13 @@ import logo from './logo/tmdb.svg';
 import './style.css';
 import { Link } from 'react-router-dom';
 import ApiService from '../../service/ApiService';
+import SearchIcon from '@mui/icons-material/Search';
 
 const drawerWidth = 240;
 const navItems = [
 	{ id: 1, title: 'Home', page: '/' },
-	{ id: 2, title: 'Movie', page: 'MoviesPage' },
-	{ id: 3, title: 'Serial', page: 'SerialsPage' },
+	{ id: 2, title: 'Movies', page: 'MoviesPage' },
+	{ id: 3, title: 'Serials', page: 'SerialsPage' },
 ];
 
 function DrawerAppBar(props) {
@@ -68,7 +69,7 @@ function DrawerAppBar(props) {
 
 	return (
 		<Box sx={{ display: 'flex', marginBottom: '5em' }}>
-			<AppBar component='nav'>
+			<AppBar component='nav' style={{ backgroundColor: '#032541 !important' }}>
 				<Container>
 					<Toolbar>
 						<IconButton
@@ -95,7 +96,6 @@ function DrawerAppBar(props) {
 								/>
 							</Link>
 						</Typography>
-
 						<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 							{navItems.map(item => (
 								<Button key={item.id} sx={{ color: '#fff' }}>
@@ -106,9 +106,8 @@ function DrawerAppBar(props) {
 								</Button>
 							))}
 						</Box>
-
-						{/* search */}
-						<input onChange={SearchMovie} />
+						{/* search */} <SearchIcon style={{ fontSize: '1.9em' }} />
+						{/* <input onChange={SearchMovie} /> */}
 					</Toolbar>
 				</Container>
 			</AppBar>
