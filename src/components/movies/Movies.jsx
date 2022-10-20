@@ -29,7 +29,7 @@ export default function Movies({ title, description, image }) {
 					<Typography
 						style={{ fontSize: '15px' }}
 						variant='body2'
-						color='text.secondary'
+						color='text.white'
 					>
 						{description.slice(0, 49)}
 					</Typography>

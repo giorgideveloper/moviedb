@@ -1,4 +1,6 @@
 import { createPortal } from 'react-dom';
+import CloseIcon from '@mui/icons-material/Close';
+import { Button } from '@mui/material';
 
 function Modal(props) {
 	if (!props.isOpen) return null;
@@ -9,7 +11,9 @@ function Modal(props) {
 			<div className='modalPortal'>
 				{props.children}
 				<div>
-					<button onClick={props.handleClose}>close</button>
+					<Button variant='contained' onClick={props.handleClose}>
+						<CloseIcon />
+					</Button>
 				</div>
 			</div>
 		</>,

@@ -3,13 +3,13 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import { Container } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import Carousel from 'react-elastic-carousel';
 import Modal from '../portals/Modal';
 import ApiService from '../../service/ApiService';
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 
 function MovieContent({ data, actors }) {
-	const img_url = 'https://image.tmdb.org/t/p/w500/';
 	const [isOpen, setIsOpen] = useState(false);
 	const [trailer, setTrailer] = useState({});
 
@@ -38,7 +38,7 @@ function MovieContent({ data, actors }) {
 			);
 		}
 		return () => setTrailer({});
-	}, [isOpen]);
+	}, [isOpen, data.id]);
 	return (
 		<>
 			<Container>
@@ -48,9 +48,10 @@ function MovieContent({ data, actors }) {
 						rowSpacing={1}
 						columnSpacing={{ xs: 1, sm: 2, md: 3 }}
 						style={{
-							backgroundImage: `url('${img_url + data.poster_path} ')`,
-							backgroundPosition: 'center',
-							backgroundRepeat: 'initial',
+							backgroundImage: `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`,
+							backgroundPosition: 'top center',
+							backgroundRepeat: 'no-repeat',
+							backgroundSize: 'cover',
 							bacgroundOpacity: 0.5,
 						}}
 					>
@@ -64,14 +65,14 @@ function MovieContent({ data, actors }) {
 						>
 							<Item>
 								<img
-									src={img_url + data.poster_path}
+									src={`https://image.tmdb.org/t/p/w300/${data.poster_path}`}
 									style={{ width: '100%', height: '100%' }}
 									alt=''
 								/>
 							</Item>
 						</Grid>
 						<Grid xs={12} md={6}>
-							<Item>
+							<Item className='cardItem'>
 								<div className='title'>
 									<h2>
 										Name: {data.original_title}
@@ -88,7 +89,10 @@ function MovieContent({ data, actors }) {
 									<span>{data.overview}</span>
 								</div>
 							</Item>
-							<button onClick={() => setIsOpen(true)}>Watch trailer</button>
+							<Button variant='contained' onClick={() => setIsOpen(true)}>
+								<PlayCircleFilledIcon />
+								{'  '} Watch trailer
+							</Button>
 						</Grid>
 					</Grid>
 					<Grid
@@ -112,12 +116,12 @@ function MovieContent({ data, actors }) {
 											<li style={{ width: '100%', height: '200px' }}>
 												<a href=''>
 													<img
-														src={img_url + act.profile_path}
+														src={`https://image.tmdb.org/t/p/w200/${act.profile_path}`}
 														alt=''
 														style={{ width: '100%', height: '100%' }}
 													/>
 												</a>
-												<div>
+												<div style={{ color: '#fff' }}>
 													<p>{act.name}</p>
 													<p>{act.character}</p>
 												</div>
@@ -133,7 +137,8 @@ function MovieContent({ data, actors }) {
 			<Modal isOpen={isOpen} handleClose={handleClose}>
 				<iframe
 					width='100%'
-					height='300px'
+					height='400px'
+					frameBorder='0'
 					src={`https://www.youtube.com/embed/${trailer.key}`}
 					title='AVENGERS 3: Infinity War All Bonus Features & Bloopers (2018)'
 					allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'

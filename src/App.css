@@ -2,7 +2,7 @@
 
 .css-qjaq8t-MuiPaper-root-MuiCard-root{
   border-radius: 1px !important;
-  box-shadow: 0px 2px 1px -1px rgba(255, 255, 255, 0), 0px 1px 1px 0px rgba(245, 243, 243, 0.14), 0px 1px 3px 0px rgba(252, 252, 252, 0.12) !important;
+  box-shadow: none !important;
 }
 .dropdown{
   position: absolute;
@@ -14,8 +14,8 @@
 }
 .modalPortal{
   position: fixed;
-  background-color: #f9f9f9;
-  width: 400px;
+    background-color:#1A2027 !important;
+  width: 800px;
   max-width: 90%;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
@@ -40,4 +40,12 @@
 .footer_text a{
   text-decoration: none !important;
   color: black
+}
+.cardItem{
+    color: #fff !important;
+  background-color:#1A2027 !important;
+}
+.css-46bh2p-MuiCardContent-root{
+  color: #fff !important;
+  background-color:#1A2027 !important;
 }

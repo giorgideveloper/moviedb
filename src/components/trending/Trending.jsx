@@ -4,21 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
-import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-
-const Item = styled(Paper)(({ theme }) => ({
-	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-	...theme.typography.body2,
-	padding: theme.spacing(0),
-
-	color: theme.palette.text.secondary,
-}));
 
 const breakPoints = [
 	{ width: 1, itemsToShow: 2 },
@@ -33,10 +23,20 @@ function Trending({ data }) {
 	const img_url = 'https://image.tmdb.org/t/p/w500/';
 	return (
 		<Box sx={{ width: '100%' }}>
-			<Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 0 }}>
-				<Carousel itemsToScroll={5} itemsToShow={5} breakPoints={breakPoints}>
+			<Grid
+				style={{ backgroundColor: '#1A2027' }}
+				container
+				rowSpacing={1}
+				columnSpacing={1}
+			>
+				<Carousel
+					itemPadding={[0, 5]}
+					itemsToScroll={5}
+					itemsToShow={5}
+					breakPoints={breakPoints}
+				>
 					{data.map(res => (
-						<Item
+						<div
 							key={res.id}
 							style={{
 								padding: '2px',
@@ -46,7 +46,10 @@ function Trending({ data }) {
 							}}
 						>
 							<Link to={`/movie/${res.id}`}>
-								<Card sx={{ maxWidth: '100%', maxHeight: 'auto' }}>
+								<Card
+									sx={{ maxWidth: '100%', maxHeight: 'auto' }}
+									className='cardItem'
+								>
 									<CardActionArea>
 										<CardMedia
 											component='img'
@@ -80,7 +83,7 @@ function Trending({ data }) {
 									<CardActions></CardActions>
 								</Card>
 							</Link>
-						</Item>
+						</div>
 					))}
 				</Carousel>
 			</Grid>
