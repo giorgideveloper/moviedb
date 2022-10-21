@@ -20,7 +20,6 @@ import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import ApiService from '../../service/ApiService';
 import SearchPortal from './searchPortal';
-import { Portal } from '@mui/material';
 
 const drawerWidth = 240;
 const navItems = [
@@ -52,10 +51,13 @@ function DrawerAppBar(props) {
 		setMobileOpen(!mobileOpen);
 	};
 
-	const handleClick = () => {
+	const handleClick = e => {
 		setShow(!show);
 	};
 
+	const handleBlur = e => {
+		setShow(!show);
+	};
 	const drawer = (
 		<Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
 			<Typography variant='h6' sx={{ my: 2 }}>
@@ -124,7 +126,9 @@ function DrawerAppBar(props) {
 						{/* <input onChange={SearchMovie} /> */}
 					</Toolbar>
 				</Container>
-				{show ? <SearchPortal SearchMovie={SearchMovie} /> : null}
+				{show ? (
+					<SearchPortal SearchMovie={SearchMovie} handleBlur={handleBlur} />
+				) : null}
 				<div>
 					{searchContent.length >= 3 ? (
 						<ul

@@ -8,6 +8,7 @@ import Carousel from 'react-elastic-carousel';
 import Modal from '../portals/Modal';
 import ApiService from '../../service/ApiService';
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
+import { Link } from 'react-router-dom';
 
 function MovieContent({ data, actors, loading }) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -127,13 +128,13 @@ function MovieContent({ data, actors, loading }) {
 										>
 											<Item>
 												<li style={{ width: '100%', height: '200px' }}>
-													<a href=''>
+													<Link to={`/actors/${act.id}`}>
 														<img
 															src={`https://image.tmdb.org/t/p/w200/${act.profile_path}`}
 															alt=''
 															style={{ width: '100%', height: '100%' }}
 														/>
-													</a>
+													</Link>
 													<div style={{ color: '#fff' }}>
 														<p>{act.name}</p>
 														<p>{act.character}</p>
