@@ -62,3 +62,16 @@
   width: 50% !important;
 
 }
+
+/* progress */
+
+.css-ol7wxs-MuiTypography-root {
+    margin: 0;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: bold !important;
+    font-size: 0.9rem !important;
+    line-height: 1em !important;
+    letter-spacing: 0.03333em !important;
+    color: rgb(255, 255, 255) !important;
+    
+}

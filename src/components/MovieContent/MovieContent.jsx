@@ -9,6 +9,7 @@ import Modal from '../portals/Modal';
 import ApiService from '../../service/ApiService';
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import { Link } from 'react-router-dom';
+import format from 'date-fns/format';
 
 function MovieContent({ data, actors, loading }) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -88,8 +89,8 @@ function MovieContent({ data, actors, loading }) {
 									<div className='title'>
 										<h2>
 											Name: {data.original_title}
-											<span style={{ marginLeft: '10px', fontSize: '16px' }}>
-												({data.release_date})
+											<span style={{ marginLeft: '10px', fontSize: '18px' }}>
+												({format(new Date(data.release_date), ' Y')} )
 											</span>
 										</h2>
 										<div className='character'>
