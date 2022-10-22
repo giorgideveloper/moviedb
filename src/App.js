@@ -7,6 +7,7 @@ import SerialsPage from './page/SerialsPage';
 import SinglePage from './page/SinglePage';
 import Footer from './components/footer/Footer';
 import NothingPage from './page/NothingPage';
+import ActorPage from './page/ActorPage';
 
 function App() {
 	/* search */
@@ -16,9 +17,11 @@ function App() {
 			<DrawerAppBar style={{ marginTop: '2em' }} />
 			<Routes>
 				<Route path='/' element={<MainPage />} />
-				<Route path='/MoviesPage' element={<MoviesPage />} />
-				<Route path='/SerialsPage' element={<SerialsPage />} />
+				<Route path='/movie' element={<MoviesPage />} />
+				<Route path='/serial' element={<SerialsPage />} />
 				<Route path='/movie/:id' element={<SinglePage />} />
+				<Route path='/actor/:id' element={<ActorPage />} />
+
 				<Route path='*' element={<NothingPage />} />
 			</Routes>
 			<Footer />

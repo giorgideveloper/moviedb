@@ -40,11 +40,13 @@ CircularProgressWithLabel.propTypes = {
 
 export default function CircularStatic(props) {
 	console.log(Math.round(props.vote));
-	const [progress, setProgress] = React.useState(10);
+	const [progress, setProgress] = React.useState(0);
 
 	React.useEffect(() => {
-		setProgress(prevProgress => (props.vote >= 100 ? 0 : props.vote + 62));
-	}, []);
+		setInterval(() => {
+			setProgress(prevProgress => (props.vote >= 100 ? 0 : props.vote + 62));
+		}, 500);
+	}, [props.vote]);
 
 	return <CircularProgressWithLabel value={progress} />;
 }

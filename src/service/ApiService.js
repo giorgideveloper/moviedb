@@ -30,4 +30,7 @@ export default {
 	getVideos(id) {
 		return api.get(`movie/${id}/videos${api_key}`);
 	},
+	getActor(id) {
+		return api.get(`person/${id}${api_key}`);
+	},
 };

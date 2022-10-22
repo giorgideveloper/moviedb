@@ -129,7 +129,7 @@ function MovieContent({ data, actors, loading }) {
 										>
 											<Item>
 												<li style={{ width: '100%', height: '200px' }}>
-													<Link to={`/actors/${act.id}`}>
+													<Link to={`/actor/${act.id}`}>
 														<img
 															src={`https://image.tmdb.org/t/p/w200/${act.profile_path}`}
 															alt=''

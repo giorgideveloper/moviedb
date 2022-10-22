@@ -24,8 +24,8 @@ import SearchPortal from './searchPortal';
 const drawerWidth = 240;
 const navItems = [
 	{ id: 1, title: 'Home', page: '/' },
-	{ id: 2, title: 'Movies', page: 'MoviesPage' },
-	{ id: 3, title: 'Serials', page: 'SerialsPage' },
+	{ id: 2, title: 'Movies', page: 'movie' },
+	{ id: 3, title: 'Serials', page: 'serial' },
 ];
 
 function DrawerAppBar(props) {
