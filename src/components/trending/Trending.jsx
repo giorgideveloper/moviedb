@@ -81,9 +81,7 @@ function Trending({ data }) {
 											>
 												{res.title}
 											</Typography>
-											<Typography gutterBottom variant='h7' component='div'>
-												Vote: {res.vote_average}
-											</Typography>
+
 											<Typography
 												gutterBottom
 												variant='h7'
