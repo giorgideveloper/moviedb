@@ -90,7 +90,7 @@ function MovieContent({ data, actors, loading }) {
 										<h2>
 											Name: {data.original_title}
 											<span style={{ marginLeft: '10px', fontSize: '18px' }}>
-												({format(new Date(data.release_date), ' Y')} )
+												({format(new Date(data.release_date), 'MMM dd, yyyy')} )
 											</span>
 										</h2>
 										<div className='character'>

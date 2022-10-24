@@ -39,7 +39,6 @@ CircularProgressWithLabel.propTypes = {
 };
 
 export default function CircularStatic(props) {
-	console.log(Math.round(props.vote));
 	const [progress, setProgress] = React.useState(0);
 
 	React.useEffect(() => {
